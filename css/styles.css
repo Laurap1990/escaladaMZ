@@ -1,0 +1,81 @@
+:root{
+    --fuentePrincipal : 'Calligraffitti', sans-serif;
+    --fuenteEncabezados: 'Space Grotesk', sans-serif;
+    --colorBlanco: #FFF;
+    --colorNegro: #000000;
+    --colorNaranja:#d18f53;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+/* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+
+  /* ***GLOBALES*** */
+
+  a{
+    text-decoration: none;
+  }
+
+  h1{
+    font-size: 5rem;
+    font-family: var(--fuenteEncabezados);
+  }
+
+  img{
+    max-width: 100%;
+  }
+
+  p{
+    font-family: var(--fuentePrincipal);
+    font-size: 1.5rem;
+    color: var(--colorNaranja);
+  }
+
+
+  /* ***UTILIDADES *** */
+
+  .no-margin{
+    margin: 0;
+  }
+
+  .no-padding{
+    padding: 0;
+  }
+
+  .centrar-texto{
+    text-align: center;
+  }
+
+ /* ContenedorPrincipal */
+ .contenedorPrincipal{
+    display: grid;
+ }
+
+
+  /* ***HEADER*** */
+
+  .header{
+    opacity: 0.9;
+    height: 65rem;
+    background-image: url(../img/Background.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0.1rem, 0.1rem, 0, 0.1rem;
+    margin-bottom: 0;
+  }
+
+
+  /* ***FOOTER*** */
+  .footer{
+    margin-top: 0;
+    height: 5rem;
+    background-color: #000000;
+  }

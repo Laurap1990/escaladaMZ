@@ -91,7 +91,7 @@ html{
     background-repeat: no-repeat;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
 
   .menu{
@@ -104,7 +104,7 @@ html{
 
 
   @media (min-width:800px) {
-    .contenedor__logo{
+    .menu{
       grid-column: 3 / 4;
     }
 
@@ -135,16 +135,24 @@ html{
 
   /* ***MENU ****/
   .menu a{
-    color: var(--colorNegro);
+    color: var(--colorBlanco);
     font-size: 3rem;
     padding: 1rem;
     text-transform: uppercase;
     font-weight: bold;
+    transition: font-size 0.8s;
+  }
+
+  .menu a:hover{
+    color: var(--colorNaranja);
+    font-size: 3.4rem;
+    
   }
 
   .menu{
     display: grid;
     grid-template-rows: repeat(2, 1fr);
+    
   }
   
   .menu__inicio{

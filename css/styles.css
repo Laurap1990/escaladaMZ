@@ -4,22 +4,28 @@
     --fuenteLogo: 'Caveat', sans-serif;
     --colorBlanco: #FFF;
     --colorNegro: #000000;
+    --grisOscuro: #333333;
+    --colorOscuro:#233738;
     --colorNaranja:#d18f53;
+    --colorAzul:#8cccf0;
+    --colorAzulClaro:#eff9fb;
 }
 
 html{
     box-sizing: border-box;
-    font-size: 62.5%;
+    font-size: 62.5%; /*habilita que 1rem sean 10px*/
 }
 
 /* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+/*PARA QUE EL PADDING NO SEA UN PROBLEMA*/
 *, *:before, *:after {
     box-sizing: inherit;
   }
 
   body{
+    display: grid;
     font-family: var(--fuenteParrafos);
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 2; /* INTERLINEADO*/
   }
 
@@ -28,8 +34,8 @@ html{
 
   /* ***GLOBALES*** */
   .contenedor{
+    width: 95%;
     max-width: 120rem;
-    width: 90%;
     margin: 0 auto;
   }
 
@@ -48,7 +54,7 @@ html{
 
   p{
     font-size: 1.5rem;
-    font-family: var(--fuenteEncabezados);
+    font-family: var(--fuenteParrafos);
   }
 
   
@@ -71,45 +77,31 @@ html{
 
 
 
+
+  /* INDEX********** */
+
+
  /* ContenedorPrincipal */
  .contenedorPrincipal{
     display: grid;
  }
 
 
-
-
-
-
   /* ***HEADER*** */
   .header{
     opacity: 0.9;
-    height: 65rem;
     background-image: url(../img/Background.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    display: grid;
+    display: grid; /*PADRE DE GRID ROW EN .LOGIN*/
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-  }
-
-  .menu{
-    grid-row: 2/3;
   }
 
   .contenedor__logo{
     padding: 3rem;
   }
-
-
-  @media (min-width:800px) {
-    .menu{
-      grid-column: 3 / 4;
-    }
-
-  }
-
 
 
 
@@ -127,15 +119,35 @@ html{
 
   .logo__bold{
     font-weight: 700;
+    font-size: 9rem;
+  }
+
+  .logo-dashboard{
+    color: var(--colorNegro);
   }
 
 
 
+  /* ***LOGIN ****/
 
 
-  /* ***MENU ****/
-  .menu a{
-    color: var(--colorBlanco);
+  .login{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    
+  }
+  
+  .login__inicio{
+    padding-top: 5rem;
+  }
+
+  
+  .login{
+    grid-row: 2/3;
+  }
+
+  .login a{
+    color: var(--colorNegro);
     font-size: 3rem;
     padding: 1rem;
     text-transform: uppercase;
@@ -143,34 +155,185 @@ html{
     transition: font-size 0.8s;
   }
 
-  .menu a:hover{
-    color: var(--colorNaranja);
+  .login a:hover{
     font-size: 3.4rem;
     
   }
 
-  .menu{
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    
-  }
+
+  @media (min-width:800px) {
+    .login{
+      grid-column: 3 / 4;
+    }
+
+    .login a{
+      color: var(--colorBlanco);
+      font-size: 3rem;
+      padding: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: font-size 0.8s;
+    }
   
-  .menu__inicio{
-    padding-top: 5rem;
+    .login a:hover{
+      color: var(--colorNaranja);
+      font-size: 3.4rem;
+      
+    }
+
   }
 
 
-
-  /* ***FOOTER*** */
-  .footer{
+  /* ***FOOTER INDEX*** */
+  .footer-index{
     margin-top: 0;
-    height: 5rem;
     background-color: #000000;
     font-family: var(--fuenteFooter);
     color: var(--colorNaranja);
   }
 
-  .footer p{
+  .footer-index p{
     font-family: var(--fuenteFooter);
     color: var(--colorNaranja);
   }
+
+
+
+
+  /* DASHBOARD**** */
+
+  /* HEADER DASHBOARD */
+
+  .header-dashboard{
+    background-image: url(../img/dashboard.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    max-height: 100%;
+  }
+
+  .contenido-header{
+    color: var(--colorAzul);
+    font-family: var(--fuenteParrafos);
+    text-transform: uppercase;
+  }
+
+  .contenido-header .title{
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    font-family: var(--fuenteParrafos);
+  }
+
+  @media (min-width: 480px) {
+      .contenido-header .title{
+        font-size: 5rem;
+        justify-content: end;
+      }
+  }
+
+
+  @media (min-width: 768px) {
+    .barra{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    .navegacion{
+      padding: 3rem 0;
+      margin-left: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .navegacion a{
+      margin-right: 2rem;
+      
+    }
+
+    .navegacion a:last-of-type{
+      margin-right: 0;
+    }
+  }
+
+  .navegacion a{
+    display: flex;
+    color: var(--colorNegro);
+    font-weight: bold;
+  }
+
+
+  /* MAIN */
+
+  .main{
+    background: linear-gradient(to bottom, var(--colorAzul), var(--colorAzulClaro));
+    max-height: 100%;
+    height: 50rem;
+    padding: 5rem;
+    margin-top: auto;
+
+  }
+  .contenido-main{
+    text-align: center;
+  }
+
+  @media (min-width: 480px) {
+      .contenido-main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        text-align: center;
+      }
+  }
+
+  .main .boton{
+    margin-bottom: 2rem;
+    padding: 2.5rem;
+    font-weight: bold;
+    background-color: var(--colorOscuro);
+    transition: background-color 0.8s;
+    border-radius: 1rem;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+   
+  }
+
+  .main .boton:hover{
+    cursor: pointer;
+  }
+
+  .boton a{
+    color: var(--colorBlanco);
+    font-family: var(--fuenteParrafos);
+    font-size: 3rem;
+    transition: color 0.8s;
+  }
+  .main .boton a:hover{
+    color: var(--colorAzul);
+  }
+
+  /* FOOTER DASHBOARD */
+
+  .barra-footer{
+    background-color: var(--colorOscuro);
+    display: flex;
+    justify-content: end;
+  }
+
+  @media (min-width: 768px) {
+      .barra-footer{
+        height: 8rem;
+        display: flex;
+        text-align: left;
+      }
+  }
+
+  .barra-footer .navegacion{
+    padding:2rem;
+  }
+  .barra-footer .navegacion a{
+    font-family: var(--fuenteParrafos);
+    text-transform: uppercase;
+    color: var(--colorAzul);
+  }
+

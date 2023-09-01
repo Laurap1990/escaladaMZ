@@ -113,10 +113,6 @@ html{
     font-size: 10rem;
   }
 
-  .logo__nombre{
-    font-weight: 400;
-  }
-
   .logo__bold{
     font-weight: 700;
     font-size: 9rem;
@@ -126,6 +122,17 @@ html{
     color: var(--colorNegro);
   }
 
+  .logo__nombre{
+    font-size: 4rem;
+    margin: 0 3rem 0 0;
+  }
+
+  @media (min-width: 450px) {
+    .logo__nombre{
+      font-size: 6.5rem;
+      font-weight: 400;
+    }
+  }
 
 
   /* ***LOGIN ****/
@@ -225,13 +232,29 @@ html{
     font-family: var(--fuenteParrafos);
   }
 
-  @media (min-width: 480px) {
+  @media (min-width:450px) {
       .contenido-header .title{
         font-size: 5rem;
         justify-content: end;
       }
   }
 
+
+  .navegacion{
+    display: none;
+  }
+
+  .navegacion a{
+    color: var(--colorAzulClaro);
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .barra{
+    display: grid;
+    justify-items: center;
+  }
 
   @media (min-width: 768px) {
     .barra{
@@ -248,8 +271,8 @@ html{
     }
 
     .navegacion a{
+      color: var(--colorNegro);
       margin-right: 2rem;
-      
     }
 
     .navegacion a:last-of-type{
@@ -257,11 +280,32 @@ html{
     }
   }
 
-  .navegacion a{
-    display: flex;
-    color: var(--colorNegro);
-    font-weight: bold;
+  
+
+  /* MENU-MOBILE  */
+
+  .mobile-menu img{
+    height: 5rem;
+    width: 5rem;
   }
+
+  .mobile-menu{
+    
+  }
+
+
+@media (min-width: 768px) {
+  .mobile-menu{
+    display: none;
+  }
+}
+
+.mostrar{
+  display: block;
+}
+
+
+
 
 
   /* MAIN */
@@ -269,10 +313,15 @@ html{
   .main{
     background: linear-gradient(to bottom, var(--colorAzul), var(--colorAzulClaro));
     max-height: 100%;
-    height: 50rem;
     padding: 5rem;
     margin-top: auto;
 
+  }
+
+  @media (min-width: 400px) {
+      .main{
+        height: 50rem;
+      }
   }
   .contenido-main{
     text-align: center;
@@ -287,7 +336,7 @@ html{
       }
   }
 
-  .main .boton{
+  .boton{
     margin-bottom: 2rem;
     padding: 2.5rem;
     font-weight: bold;
@@ -312,25 +361,74 @@ html{
     color: var(--colorAzul);
   }
 
+  .main-contacto{
+    height: 100%;
+  }
+
+
+
+  /* FORMULARIO */
+
+  .titulo{
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .formulario input:not([type="submit"]){
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid gray;
+  }
+
+
+  textarea{
+    width: 100%;
+  }
+
+  fieldset{
+    margin-bottom: 2rem;
+  }
+
+
+
+
+  /* BOTON PRIMARIO */
+
+  .boton-primario{
+    padding: 1rem 2rem;
+    background-color: var(--colorOscuro);
+    color: var(--colorAzul);
+    border-radius: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  }
+
+  .boton-primario:hover{
+    cursor: pointer;
+  }
+
+
+
+
   /* FOOTER DASHBOARD */
 
-  .barra-footer{
+  .footer-dash{
     background-color: var(--colorOscuro);
-    display: flex;
-    justify-content: end;
+    height: 8rem;
   }
-
-  @media (min-width: 768px) {
-      .barra-footer{
-        height: 8rem;
-        display: flex;
-        text-align: left;
-      }
-  }
+  
 
   .barra-footer .navegacion{
     padding:2rem;
+    display: flex;
+    justify-content: right;
+    gap: 2rem;
   }
+
+
   .barra-footer .navegacion a{
     font-family: var(--fuenteParrafos);
     text-transform: uppercase;

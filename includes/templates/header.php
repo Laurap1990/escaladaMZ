@@ -24,7 +24,7 @@
 
             <div class="barra">
                 <div class="contenedor contenedor__logo centrar-texto">
-                    <a class="logo logo-dashboard" href="dashboard.html">
+                    <a class="logo logo-dashboard" href="index.php">
                         <h1 class="logo__nombre no-margin centrar-texto">Escalada<span class="logo__bold">MZ</span></h1>
                     </a>
                 </div>
@@ -34,34 +34,12 @@
                 </div>
                 
                 <nav class="navegacion mobile-menu__nav"> 
-                    <a href="index.html">Cerrar Sesión</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="index.php">Inicio</a>
+                    <a href="dashboard.php">Escala!</a>
+                    <a href="contacto.php">Contacto</a>
                 </nav>
             </div>
 
-            <h1 class="title">Escala en compañía</h1>
+            <h1 class="title">Unimos escaladores</h1>
         </div>
     </header>
-    <main class="main">
-        <div class="contenedor contenido-main">
-            <div class="boton">
-                <a href="">Crear Salida</a>
-            </div>
-            <div class="boton">
-                <a href="">Ver Próximas Salidas</a>
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer-dash">
-        <div class="barra-footer">
-            <nav class="navegacion"> 
-                <a href="index.html">Cerrar Sesión</a>
-                <a href="contacto">Contacto</a>
-            </nav>
-        </div>
-    </footer>
-    
-<script src="js.js"></script>
-</body>
-</html>

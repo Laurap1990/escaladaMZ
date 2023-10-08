@@ -78,34 +78,8 @@ html{
 
 
 
-  /* INDEX********** */
 
-
- /* ContenedorPrincipal */
- .contenedorPrincipal{
-    display: grid;
- }
-
-
-  /* ***HEADER*** */
-  .header{
-    opacity: 0.9;
-    background-image: url(../img/Background.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: grid; /*PADRE DE GRID ROW EN .LOGIN*/
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-  }
-
-  .contenedor__logo{
-    padding: 3rem;
-  }
-
-
-
-
+  
   /* ***LOGO*** */
   .logo{
     color: var(--colorBlanco);
@@ -135,81 +109,8 @@ html{
   }
 
 
-  /* ***LOGIN ****/
 
-
-  .login{
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    
-  }
-  
-  .login__inicio{
-    padding-top: 5rem;
-  }
-
-  
-  .login{
-    grid-row: 2/3;
-  }
-
-  .login a{
-    color: var(--colorNegro);
-    font-size: 3rem;
-    padding: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: font-size 0.8s;
-  }
-
-  .login a:hover{
-    font-size: 3.4rem;
-    
-  }
-
-
-  @media (min-width:800px) {
-    .login{
-      grid-column: 3 / 4;
-    }
-
-    .login a{
-      color: var(--colorBlanco);
-      font-size: 3rem;
-      padding: 1rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      transition: font-size 0.8s;
-    }
-  
-    .login a:hover{
-      color: var(--colorNaranja);
-      font-size: 3.4rem;
-      
-    }
-
-  }
-
-
-  /* ***FOOTER INDEX*** */
-  .footer-index{
-    margin-top: 0;
-    background-color: #000000;
-    font-family: var(--fuenteFooter);
-    color: var(--colorNaranja);
-  }
-
-  .footer-index p{
-    font-family: var(--fuenteFooter);
-    color: var(--colorNaranja);
-  }
-
-
-
-
-  /* DASHBOARD**** */
-
-  /* HEADER DASHBOARD */
+  /* HEADER */
 
   .header-dashboard{
     background-image: url(../img/dashboard.webp);
@@ -268,6 +169,7 @@ html{
       display: flex;
       flex-direction: row;
       justify-content: center;
+      height: 10rem;
     }
 
     .navegacion a{
@@ -289,10 +191,6 @@ html{
     width: 5rem;
   }
 
-  .mobile-menu{
-    
-  }
-
 
 @media (min-width: 768px) {
   .mobile-menu{
@@ -301,9 +199,15 @@ html{
 }
 
 .mostrar{
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
+@media (min-width: 768px) {
+    .mostrar{
+      flex-direction: row;
+    }
+}
 
 
 
@@ -311,7 +215,8 @@ html{
   /* MAIN */
 
   .main{
-    background: linear-gradient(to bottom, var(--colorAzul), var(--colorAzulClaro));
+    background: rgb(34,51,57);
+    background: linear-gradient(180deg, rgba(34,51,57,1) 0%, rgba(101,145,168,1) 5%, rgba(202,223,232,1) 39%);
     max-height: 100%;
     padding: 5rem;
     margin-top: auto;
@@ -320,7 +225,7 @@ html{
 
   @media (min-width: 400px) {
       .main{
-        height: 50rem;
+        height: 100%;
       }
   }
   .contenido-main{
@@ -365,7 +270,25 @@ html{
     height: 100%;
   }
 
+  .main-dashboard{
+    height: 80rem;
+  }
 
+  .img-dashboard{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 70%;
+  }
+
+  .img-dashboard img,
+  .img-index {
+    border-radius: 8px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  
 
   /* FORMULARIO */
 
@@ -420,8 +343,22 @@ html{
     height: 8rem;
   }
   
+  .barra-footer{
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .barra-footer p{
+    padding: 1rem;
+    font-family: var(--fuenteParrafos);
+    text-transform: uppercase;
+    color: var(--colorAzul);
+    font-size: 2rem;
+  }
 
   .barra-footer .navegacion{
+    height: auto;
     padding:2rem;
     display: flex;
     justify-content: right;

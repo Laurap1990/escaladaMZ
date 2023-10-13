@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EscaladaMZ</title>
 
     <!-- PRELOADS -->
-    <link rel="preload" href="css/normalize.css" as="style">
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="/escaladamz/css/normalize.css" as="style">
+    <link rel="stylesheet" href="/escaladamz/css/normalize.css">
 
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" href="/escaladamz/css/styles.css" as="style">
+    <link rel="stylesheet" href="/escaladamz/css/styles.css">
 
     <!-- ESTILO FUENTE GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,13 +30,13 @@
                 </div>
 
                 <div class="mobile-menu">
-                    <img src="img/barras.svg" alt="icono menu responsive">
+                    <img src="/img/barras.svg" alt="icono menu responsive">
                 </div>
                 
                 <nav class="navegacion mobile-menu__nav"> 
-                    <a href="index.php">Inicio</a>
-                    <a href="dashboard.php">Escala!</a>
-                    <a href="contacto.php">Contacto</a>
+                    <a href="/escaladamz/index.php">Inicio</a>
+                    <a href="/escaladamz/dashboard.php">Escala!</a>
+                    <a href="/escaladamz/contacto.php">Contacto</a>
                 </nav>
             </div>
 

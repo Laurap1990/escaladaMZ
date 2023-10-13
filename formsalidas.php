@@ -1,7 +1,15 @@
 <?php
+
     require './includes/funciones.php';
+    //incluir la conexion
+    require './includes/config/database.php';
 
     incluirTemplate('header');
+
+    //conexion a la base de datos
+    conectarDB();
+
+
 ?>
 
 <main class="main main-contacto">
@@ -44,5 +52,8 @@
     </main>
 
 <?php
+
+    mysqli_close($db);
+
     incluirTemplate('footer');
 ?>

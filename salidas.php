@@ -4,11 +4,13 @@
     incluirTemplate('header');
 ?>
 
-    <main class="main" >
-        <div class ="contenedor">
-            <h1>BASE</h1>
+    <section>
+        <div>
+            <?php
+                    require './includes/templates/templatesalida.php';
+            ?>
         </div>
-    </main >
+    </section>
 
 <?php
     incluirTemplate('footer');

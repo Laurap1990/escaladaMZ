@@ -24,7 +24,7 @@
 
             <div class="barra">
                 <div class="contenedor contenedor__logo centrar-texto">
-                    <a class="logo logo-dashboard" href="index.php">
+                    <a class="logo logo-dashboard" href="/escaladamz/principal.php">
                         <h1 class="logo__nombre no-margin centrar-texto">Escalada<span class="logo__bold">MZ</span></h1>
                     </a>
                 </div>
@@ -34,9 +34,10 @@
                 </div>
                 
                 <nav class="navegacion mobile-menu__nav"> 
-                    <a href="/escaladamz/index.php">Inicio</a>
+                    <a href="/escaladamz/principal.php">Inicio</a>
                     <a href="/escaladamz/dashboard.php">Escala!</a>
                     <a href="/escaladamz/contacto.php">Contacto</a>
+                    <a href="/escaladamz/logout.php">Logout</a>
                 </nav>
             </div>
 

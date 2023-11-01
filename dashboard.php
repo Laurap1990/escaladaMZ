@@ -2,6 +2,8 @@
     require './includes/funciones.php';
 
     incluirTemplate('header');
+
+    session_start();
 ?>
 
 

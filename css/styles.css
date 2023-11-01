@@ -53,7 +53,7 @@ html{
   }
 
   p{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-family: var(--fuenteParrafos);
   }
 
@@ -328,10 +328,15 @@ html{
     text-transform: uppercase;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     margin-bottom: 2rem;
+    
   }
 
   .boton-primario:hover{
+    transition: background-color 0.2s;
     cursor: pointer;
+    background-color: var(--colorAzul);
+    color: var(--grisOscuro);
+    
   }
 
   /* BOTON BLOCK */
@@ -432,6 +437,12 @@ html{
     background-color: rgb(97, 217, 97);
   }
 
+  .error{
+    font-size: large;
+    color: #000000;
+    background-color: rgb(214, 48, 48);
+  }
+
 
   /* TABLAS */
 
@@ -462,6 +473,7 @@ html{
     border: 0.1rem solid #90b0c6;
     color: var(--colorNegro);
     padding: 1rem;
+    text-align: center;
   }
 
   td{
@@ -471,3 +483,51 @@ html{
     font-size: 1.8rem;
     text-align: center;
   }
+
+
+  /* INDEX */
+
+
+  .log{
+    outline: none;
+    padding: 2rem;
+    display: block;
+    width: 50rem;
+    border-radius: 1rem;
+    border: 1px solid var(--colorOscuro);
+    margin: 20px auto;
+  }
+
+  .formularioLog input:not([type="submit"]){
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+
+  /* LISTAS */
+
+  .lista{
+    display: contents;
+    list-style: none;
+    padding: 0;
+    max-width: 40rem;
+  }
+
+
+
+  .enunciado{
+    color: var(--colorOscuro);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  li{
+    margin: 0 15rem 1rem 15rem;
+    text-align: center;
+    width: auto;
+    border: 0.05rem #333333 solid;
+    border-radius: 1rem;
+    background-color: #90b0c6;
+    box-shadow: 1px 5px 20px -2px;
+  }
+

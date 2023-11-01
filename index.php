@@ -1,26 +1,81 @@
 <?php
-    require './includes/funciones.php'; //require (si no lo encuentra nos marcará un error) para función. 
-    incluirTemplate('header'); //llamamos la funcion para incluir header y pasamos como argumento header
+
+    require './includes/funciones.php';
+    incluirTemplate('headerlogin');
+
+    
+    //muestra resultado mostrado en la url
+    $getResultado = $_GET['resultado'] ?? null;
+
+
+    session_start();
+
+    //variables
+    $user= '';
+    $id = [];
+
+    //conectar base de datos
+    require './includes/config/database.php';
+    $db = conectarDB();
+
+    if($getResultado == 1){
+        //comprobamos el id del usuario si existe en $_SESSION
+        $user = sesionUsuario($db);
+    }    
 ?>
 
-    <main class="main">
-        <div class="contenedor">
-            <h2>CREA TU PROPIA SALIDA O ÚNETE A UNA YA PROGRAMADA</h2>
 
-            <section>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ipsum perspiciatis commodi expedita, itaque totam perferendis et voluptatibus. Consequuntur ipsa ipsum voluptatem mollitia, vitae fuga saepe ipsam omnis eos error!</p>
-                <img class="img-index" src="../escaladamz/img/rock.webp" width="750 px" height="500 px" alt="imagen-post">
-            
-            </section>
+    <main class="centrar-texto main">
 
-            <a class="boton-primario" href="dashboard.php">Quiero Escalar!</a>
-        </div>
+            <!-- SI EXISTE USUARIO LOGUEADO -->
+            <?php if(!empty($user)): ?>
+
+                <div class="contenedor">
+                    <h2>Bienvenido a escaladaMZ <?php echo $user['nombre'] ?></h2>
+                    <p>Te has logueado correctamente</p>
+                    <br>
+                    <div>
+                        <a href="logout.php" class="boton-primario">Logout</a>
+                        <a href="principal.php" class="boton-primario">Entra</a>
+                    </div>
+                    <div class="img-dashboard contenedor">
+                        <img  src="img/rock.jpg" alt="imagen-dashboard">
+                    </div>
+                </div>
+                
+            <!-- SI NO EXISTE USUARIO LOGUEADO -->
+            <?php else: ?>
+                
+                <?php if($getResultado == 1){?>
+                        <p class="alerta exito">Usuario creado correctamente</p>
+                <?php };?>
+                <h2>Crea una cuenta o inicia sesión</h2>
+                <div class="centrar-texto contenedor ">
+                    <a href="login.php">Inicia Sesión</a> ó
+                    <a href="signup.php">Regístrate</a>
+                    <div class="img-dashboard contenedor">
+                        <img  src="img/rock.jpg" alt="imagen-dashboard">
+                    </div>
+                
+                </div>
+
+            <?php endif; ?>
+
+
+
+                
+
 
     </main>
+                
 
+    <footer class="footer-dash">
+        <div class="barra-footer">
+            <p>Todos los derechos reservados <?php echo date('Y')?> ©</p>
+        </div>
+    </footer>
 
-
-
-<?php
-   incluirTemplate('footer'); 
-?>
+        
+<script src="js.js"></script>
+</body>
+</html>

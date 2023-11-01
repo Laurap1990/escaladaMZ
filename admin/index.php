@@ -1,12 +1,10 @@
 <?php
+    session_start();
+
     //incluye template header
     require '../includes/funciones.php';
     //llamamos a la función incluir template y pasamos header como argumento
     incluirTemplate('header');
-
-    // echo "<pre>";
-    // var_dump($_POST);
-    // echo "</pre>";
 
 
     //IMPORTAR BASE DE DATOS
@@ -36,11 +34,13 @@
         if($id){
             //eliminar la propiedad
             //creamos el query si hay un ID
-            $query = "DELETE FROM salidas WHERE id = {$id}";
+            $query1 = "DELETE FROM inscripciones WHERE salidaId = {$id}";
+            $query2 = "DELETE FROM salidas WHERE id = {$id}";
             //hacemos petición
-            $resultado = mysqli_query($db, $query);
+            $resultado1 = mysqli_query($db, $query1);
+            $resultado2 = mysqli_query($db, $query2);
 
-            if($resultado){
+            if($resultado2){
                 header('Location: /escaladamz/admin/index.php?resultado=3');
             }
             

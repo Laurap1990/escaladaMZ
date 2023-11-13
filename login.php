@@ -17,11 +17,14 @@
     $datos = [];
     $mensaje= '';
 
+    //muestra resultado mostrado en la url
+    $getResultado = $_GET['resultado'] ?? null;
+
 
     
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $email = $_POST['email'] ?? null;
+        $email = trim($_POST['email'] ?? null);
 
     
         if($_POST['email'] === ''){
@@ -58,6 +61,9 @@
 
     <main class="main-log main">
         <div class="centrar-texto contenedor">
+            <?php if($getResultado == 1){?>
+                <p class="alerta exito">Usuario creado correctamente</p>
+            <?php };?>
             <h2 class="no-margin no-padding">Inicia Sesión</h2>
             <span>ó <a href="signup.php">Regístrate</a></span>
 

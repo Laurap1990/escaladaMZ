@@ -11,7 +11,7 @@
     session_start();
 
     //variables
-    $user= '';
+    $user= [];
     $id = [];
 
     //conectar base de datos
@@ -46,9 +46,6 @@
             <!-- SI NO EXISTE USUARIO LOGUEADO -->
             <?php else: ?>
                 
-                <?php if($getResultado == 1){?>
-                        <p class="alerta exito">Usuario creado correctamente</p>
-                <?php };?>
                 <h2>Crea una cuenta o inicia sesión</h2>
                 <div class="centrar-texto contenedor ">
                     <a href="login.php">Inicia Sesión</a> ó

@@ -22,7 +22,7 @@
         $nick = $_POST['nick'] ?? null;
         $nombre = $_POST['nombre'] ?? null;
         $apellido = $_POST['apellido'] ?? null;
-        $email = $_POST['email'] ?? null;
+        $email = trim($_POST['email'] ?? null);
 
         if($nick == ''){
             $errores[] = "El nick es obligatorio";
@@ -45,12 +45,12 @@
         //Código que se ejecuta si no hay errores
         if(empty($errores)){
             $query = "INSERT INTO usuarios (nick, email, nombre, apellido1, password)
-                        VALUES ('$nick',' $email', '$nombre', '$apellido', '$pass')";
+                        VALUES ('$nick','$email', '$nombre', '$apellido', '$pass')";
 
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
-                header('Location: /escaladamz/index.php?resultado=1');
+                header('Location: /escaladamz/login.php?resultado=1');
             }
         }
 

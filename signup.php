@@ -1,52 +1,40 @@
 <?php
     require './includes/funciones.php';
     incluirTemplate('headerlogin');
-
+    require './clases/user.php';
     require './includes/config/database.php';
     $db = conectarDB();
-
-    //para ocultar warning si el array está vacío
     error_reporting(0);
-
     //variables
-
-    $nick = '';
-    $nombre = '';
-    $apellido = '';
-    $email = '';
-    $pass = '';
     $errores = [];
 
     //vamos a revisar el request method. puesto en el form 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $nick = $_POST['nick'] ?? null;
-        $nombre = $_POST['nombre'] ?? null;
-        $apellido = $_POST['apellido'] ?? null;
-        $email = trim($_POST['email'] ?? null);
 
-        if($nick == ''){
+        $usuario = new user($_POST);
+
+        
+
+        if($_POST['nick'] == ''){
             $errores[] = "El nick es obligatorio";
         }
-        if($nombre == ''){
+        if($_POST['nombre'] == ''){
             $errores[] = "El nombre es obligatorio";
         }
-        if($apellido == ''){
+        if($_POST['apellido'] == ''){
             $errores[] = "El apellido es obligatorio";
         }
-        if($email == ''){
+        if($_POST['email'] == ''){
             $errores[] = "El email es obligatorio";
         }
-        if($_POST['pass'] === $_POST['confirm']){
-            $pass = password_hash($_POST['pass'], PASSWORD_BCRYPT);
-        }else{
+        if($_POST['pass'] !== $_POST['confirm']){
+
             $errores[] = "Las contraseñas no coinciden";
         }
 
         //Código que se ejecuta si no hay errores
         if(empty($errores)){
-            $query = "INSERT INTO usuarios (nick, email, nombre, apellido1, password)
-                        VALUES ('$nick','$email', '$nombre', '$apellido', '$pass')";
-
+            $query = $usuario -> createUser();
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
@@ -55,11 +43,6 @@
         }
 
     }
-
-
-    //     echo "<pre>";
-    //  var_dump($_POST);
-    //  echo "</pre>";
 
      
 

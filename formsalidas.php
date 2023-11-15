@@ -1,5 +1,7 @@
 <?php
     require './includes/funciones.php';
+       require './clases/user.php';
+       require './clases/classSalida.php';
 
     incluirTemplate('header');
 
@@ -19,10 +21,6 @@
 
 
       //VARIABLES GLOBALES
-
-      $fecha = '';
-      $hora = '';
-      $lugar = '';
       $user= '';
       $id = '';
       $errores = [];
@@ -35,53 +33,40 @@
 
       if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-        $fechasalida = $_POST['fecha'] ?? null;
-        $horasalida = $_POST['hora'] ?? null;
-        $lugar = $_POST['lugar'] ?? null;
-        
-
-        // echo "<pre>";
-        // var_dump($_POST);
-        // echo "</pre>";
-
-        if($fechasalida == ''){
+        $salida = new salida($_POST);
+        $salida -> setCreado($creado);
+        $salida -> setUsuario($id);
+    
+        if($_POST['fechasalida'] == ''){
             $errores[] = "Debes introducir una fecha";
         }
 
-        if($horasalida == ''){
+        if($_POST['horasalida'] == ''){
             $errores[] = "Debes introducir una hora";
         }
 
-        if($lugar == ''){
+        if($_POST['lugar'] == ''){
             $errores[] = "Debes introducir un lugar";
-        }
-
-        if($id == ''){
-            $errores[] = "Introduce un Usuario";
         }
 
         if(empty($errores)){
 
-            $querySalida = "INSERT INTO salidas (fechasalida, horasalida, lugar, usuarios_id, creado)
-            VALUES ('$fechasalida', '$horasalida', '$lugar', '$id', '$creado')";
-
-            $resultSalida = mysqli_query($db, $querySalida);
+            $query = $salida -> crearSalida();
+            $resultado = mysqli_query($db, $query);
+            
 
 
             //CREAMOS INSCRIPCIÓN AUTOMÁTICA DEL USUARIO EN SU PROPIA SALIDA
             //seleccionamos salidas
-            $queryInscripcion = "SELECT id FROM salidas 
-            WHERE usuarios_id = '$id' 
-            ORDER BY creado DESC 
-            LIMIT 1";
+            $querySalida = $salida -> selectSalida();
+            $resultSalida = mysqli_query($db, $querySalida);
+            $salidaSeleccionada = mysqli_fetch_assoc($resultSalida);
 
-            $resultInscr = mysqli_query($db, $queryInscripcion);
-            $salida = mysqli_fetch_assoc($resultInscr);
-            $idsalida = $salida['id'];
+            $idSalida = $salidaSeleccionada['id'];
 
             //insertamos incripcion
             $insertInscripcion = "INSERT INTO inscripciones (usuarioId, salidaId)
-            VALUES ('$id', '$idsalida')";
+            VALUES ('$id', '$idSalida')";
             $resultado = mysqli_query($db, $insertInscripcion);
 
             if($resultSalida){
@@ -115,11 +100,11 @@
                 <fieldset>
                     <legend>Crea tu propia salida</legend>
                 
-                    <label for="fecha" >Dinos qué día escalamos</label>
-                    <input type="date" min = "<?php echo date('Y-m-d') ?>" value="fecha" placeholder="fecha" id="fecha" name="fecha" value="<?php echo $fecha ?>">
+                    <label for="fechasalida" >Dinos qué día escalamos</label>
+                    <input type="date" min = "<?php echo date('Y-m-d') ?>" value="fecha" placeholder="fecha" id="fechasalida" name="fechasalida" value="<?php echo $fecha ?>">
 
-                    <label for="hora">Establece una hora</label>
-                    <input type="time" value="hora" placeholder="hora" id="hora" name="hora" value="<?php echo $hora ?>">
+                    <label for="horasalida">Establece una hora</label>
+                    <input type="time" value="hora" placeholder="hora" id="horasalida" name="horasalida" value="<?php echo $hora ?>">
 
                     <label for="lugar">Dinos donde escalamos, se lo más explícitx que puedas.
                     </label>

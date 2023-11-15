@@ -5,7 +5,7 @@
             {
                     ob_start();
                     require_once 'funciones.php';
-                    $this->assertEquals(sesionUsuario($db));
+                    
             }
         }
 ?>

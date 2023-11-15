@@ -25,6 +25,7 @@
             $id = $queryEmail['id'];
             $queryPass = "UPDATE usuarios SET password = '{$pass}' WHERE id={$id}";
             $resultadoPass = mysqli_query($db, $queryPass);
+            header('Location: /escaladamz/login.php');
         }
 
     }

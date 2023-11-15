@@ -27,13 +27,10 @@
    $userInscrito = mysqli_fetch_assoc($resultadoInscripcion);
 
    //query para contar usuarios registrados
-   $queryCount = "SELECT COUNT(*) AS usuarios FROM inscripciones WHERE salidaId = 4";
+   $queryCount = "SELECT COUNT(*) AS usuarios FROM inscripciones WHERE salidaId = {$numSalida}";
    $resultadoCount = mysqli_query($db, $queryCount);
    $count = mysqli_fetch_assoc($resultadoCount);
-            //     echo "<pre>";
-            //  var_dump($count);
-            //  echo "</pre>";
-            //  exit;
+
 
 
    if(empty($userInscrito)){

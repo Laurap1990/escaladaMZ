@@ -70,6 +70,11 @@ class salida {
             return $query;
         }
 
+        public function selectSalidaId($numSalida){
+            $query = "SELECT * FROM salidas WHERE id = $numSalida";
+            return $query;
+        }
+
 }
 
 ?>

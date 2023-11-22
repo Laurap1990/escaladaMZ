@@ -53,6 +53,37 @@
         
     }
 
+    function enviarMailContacto ($nombre, $apellido, $telefono, $email, $body){
+        $mail = new PHPMailer(true);
+
+        $mail ->isSMTP();
+        $mail->CharSet = 'UTF-8';
+        $mail -> SMTPAuth = true;
+        $mail->isHTML(true);
+    
+        $mail -> Host = "smtp.gmail.com";
+        $mail -> SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+    
+        $mail -> Username = "laurapasos55@gmail.com";
+        $mail -> Password = "gfyjxgubwyjuhnxe";
+        $mail -> setFrom("laurap__@hotmail.com", "escaladaMZ");
+        $mail -> addAddress("laurap__@hotmail.com", $nombre);
+    
+        $subject = "Contacto de un usuario";
+        $subject = "=?UTF-8?B?".base64_encode($subject)."=?=";
+        $mail->Subject = $subject;
+        $mail -> Body = '<p>Nombre: ' . $nombre . '</p><br><p>Apellido: ' . $apellido . '</p><br><p>Teléfono: ' . $telefono . '</p><br><p>Email: ' . $email . '</p><br><p>Mensaje; <br>'. $body . '</p><br>';
+        
+    
+        $mail -> send();
+    
+        echo "email sent";
+    
+        
+    }
+
+    //funcion para debuguear
     function debug($var){
         echo "<pre>";
         var_dump($var);

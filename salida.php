@@ -3,6 +3,9 @@
     incluirTemplate('header'); //llamamos la funcion para incluir header y pasamos como argumento
     session_start();
 
+    require './clases/classSalida.php';
+    require './clases/classInscripcion.php';
+
     //IMPORTA LA FUNCIÓN PARA CONECTAR A LA BASE DE DATOS
     require './includes/config/database.php';
 
@@ -12,13 +15,16 @@
    //LLamamos a la funcion usuario
    $user = sesionUsuario($db);
 
+   //creamos un objeto inscripcion
+   $inscripcion = new inscripcion();
 
    //VARIABLES
     $numSalida = $_GET['salida'];
     $userInscrito=[];
     $errores='';
     //query para seleccionar solo la salida seleccionada en salidas.php
-   $querySalida = "SELECT * FROM salidas WHERE id = $numSalida";
+   $salida = new salida();
+   $querySalida = $salida -> selectSalidaId($numSalida);
    $resultadoSalidas = mysqli_query($db, $querySalida);
 
     //query para no poder inscribirse una vez inscrito
@@ -27,7 +33,7 @@
    $userInscrito = mysqli_fetch_assoc($resultadoInscripcion);
 
    //query para contar usuarios registrados
-   $queryCount = "SELECT COUNT(*) AS usuarios FROM inscripciones WHERE salidaId = {$numSalida}";
+   $queryCount = $inscripcion -> contarUsuarios($numSalida);
    $resultadoCount = mysqli_query($db, $queryCount);
    $count = mysqli_fetch_assoc($resultadoCount);
 
@@ -36,15 +42,12 @@
    if(empty($userInscrito)){
         //vamos a revisar el request method. puesto en el form para el input
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            // echo "<pre>";
-            // var_dump($_POST);
-            // echo "</pre>";
             $id = $user['id'];
                 if($id){
                     //agregar la propiedad a tabla inscripciones
                     //creamos el query si hay un ID
-                    $query = "INSERT INTO inscripciones (usuarioId, salidaId)
-                    VALUES ('{$id}', '{$numSalida}')";
+                    
+                    $query = $inscripcion -> crearInscripcion($id, $numSalida);
                     //hacemos petición
                     $resultado = mysqli_query($db, $query);
 

@@ -26,7 +26,7 @@
             <div class="barra">
                 <div class="contenedor contenedor__logo centrar-texto">
                     <a class="logo logo-dashboard" href="/escaladamz/index.php">
-                        <h1 class="logo__nombre no-margin centrar-texto">Escalada<span class="logo__bold">MZ</span></h1>
+                        <h1 class="logo__nombre no-margin centrar-texto">Top<span class="logo__bold">ROCK</span></h1>
                     </a>
                 </div>
             </div>

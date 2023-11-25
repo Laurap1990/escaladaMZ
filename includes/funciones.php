@@ -37,7 +37,7 @@
     
         $mail -> Username = "laurapasos55@gmail.com";
         $mail -> Password = "gfyjxgubwyjuhnxe";
-        $mail -> setFrom("laurap__@hotmail.com", "TopRock");
+        $mail -> setFrom("laurap__@hotmail.com", "escaladaMZ");
         $mail -> addAddress($email, $nombre);
     
         $subject = "Recuperar contraseña";
@@ -67,7 +67,7 @@
     
         $mail -> Username = "laurapasos55@gmail.com";
         $mail -> Password = "gfyjxgubwyjuhnxe";
-        $mail -> setFrom("laurap__@hotmail.com", "TopRock");
+        $mail -> setFrom("laurap__@hotmail.com", "escaladaMZ");
         $mail -> addAddress("laurap__@hotmail.com", $nombre);
     
         $subject = "Contacto de un usuario";
@@ -83,7 +83,6 @@
         
     }
 
-    //funcion para debuguear
     function debug($var){
         echo "<pre>";
         var_dump($var);

@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "name": "petgram-TU_NOMBRE",
+    "builds": [
+        { "use": "@vercel/static-build", 
+          "src": "./index.php"}
+    ],
+    "routes": [
+        {
+            "src": "(.*)",
+            "dest": "/"            
+        },
+        {
+            "src": "(.*).json",
+            "dest": "/$1.json"            
+        },
+        {
+            "src": "/.*",
+            "dest": "index.html"
+        }
+    ]
+} 
